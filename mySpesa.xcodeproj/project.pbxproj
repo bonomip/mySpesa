@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1465721F1E61F44800A7D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1465721E1E61F44800A7D449 /* AppDelegate.swift */; };
+		146572211E61F44800A7D449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572201E61F44800A7D449 /* ViewController.swift */; };
+		146572241E61F44800A7D449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146572221E61F44800A7D449 /* Main.storyboard */; };
+		146572271E61F44800A7D449 /* mySpesa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146572251E61F44800A7D449 /* mySpesa.xcdatamodeld */; };
+		146572291E61F44800A7D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146572281E61F44800A7D449 /* Assets.xcassets */; };
+		1465722C1E61F44800A7D449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1465722A1E61F44800A7D449 /* LaunchScreen.storyboard */; };
+		146572371E61F44800A7D449 /* mySpesaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572361E61F44800A7D449 /* mySpesaTests.swift */; };
+		146572421E61F44800A7D449 /* mySpesaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572411E61F44800A7D449 /* mySpesaUITests.swift */; };
+		146572501E61F57400A7D449 /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1465724F1E61F57400A7D449 /* Lista.swift */; };
+		146572521E61F5E700A7D449 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572511E61F5E700A7D449 /* SQLiteDB.swift */; };
+		146572541E61F5F300A7D449 /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572531E61F5F300A7D449 /* SQLTable.swift */; };
+		146572561E61F60200A7D449 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572551E61F60200A7D449 /* String-Extras.swift */; };
+		146572591E61F62300A7D449 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 146572581E61F62300A7D449 /* libsqlite3.0.tbd */; };
+		1465725C1E61F8C400A7D449 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = 1465725B1E61F8C400A7D449 /* data.db */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		146572331E61F44800A7D449 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146572131E61F44800A7D449 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1465721A1E61F44800A7D449;
+			remoteInfo = mySpesa;
+		};
+		1465723E1E61F44800A7D449 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146572131E61F44800A7D449 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1465721A1E61F44800A7D449;
+			remoteInfo = mySpesa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1465721B1E61F44800A7D449 /* mySpesa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mySpesa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1465721E1E61F44800A7D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		146572201E61F44800A7D449 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		146572231E61F44800A7D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		146572261E61F44800A7D449 /* mySpesa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mySpesa.xcdatamodel; sourceTree = "<group>"; };
+		146572281E61F44800A7D449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1465722B1E61F44800A7D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1465722D1E61F44800A7D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146572321E61F44800A7D449 /* mySpesaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mySpesaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		146572361E61F44800A7D449 /* mySpesaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mySpesaTests.swift; sourceTree = "<group>"; };
+		146572381E61F44800A7D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1465723D1E61F44800A7D449 /* mySpesaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mySpesaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		146572411E61F44800A7D449 /* mySpesaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mySpesaUITests.swift; sourceTree = "<group>"; };
+		146572431E61F44800A7D449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1465724F1E61F57400A7D449 /* Lista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
+		146572511E61F5E700A7D449 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		146572531E61F5F300A7D449 /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
+		146572551E61F60200A7D449 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
+		146572581E61F62300A7D449 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		1465725A1E61F72300A7D449 /* mySpesa-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mySpesa-Swift.h"; sourceTree = "<group>"; };
+		1465725B1E61F8C400A7D449 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = mySpesa/data.db; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		146572181E61F44800A7D449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146572591E61F62300A7D449 /* libsqlite3.0.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1465722F1E61F44800A7D449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1465723A1E61F44800A7D449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		146572121E61F44800A7D449 = {
+			isa = PBXGroup;
+			children = (
+				1465725B1E61F8C400A7D449 /* data.db */,
+				1465721D1E61F44800A7D449 /* mySpesa */,
+				146572351E61F44800A7D449 /* mySpesaTests */,
+				146572401E61F44800A7D449 /* mySpesaUITests */,
+				1465721C1E61F44800A7D449 /* Products */,
+				146572571E61F62300A7D449 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1465721C1E61F44800A7D449 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1465721B1E61F44800A7D449 /* mySpesa.app */,
+				146572321E61F44800A7D449 /* mySpesaTests.xctest */,
+				1465723D1E61F44800A7D449 /* mySpesaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1465721D1E61F44800A7D449 /* mySpesa */ = {
+			isa = PBXGroup;
+			children = (
+				1465721E1E61F44800A7D449 /* AppDelegate.swift */,
+				1465725A1E61F72300A7D449 /* mySpesa-Swift.h */,
+				146572201E61F44800A7D449 /* ViewController.swift */,
+				146572221E61F44800A7D449 /* Main.storyboard */,
+				1465724F1E61F57400A7D449 /* Lista.swift */,
+				146572511E61F5E700A7D449 /* SQLiteDB.swift */,
+				146572531E61F5F300A7D449 /* SQLTable.swift */,
+				146572551E61F60200A7D449 /* String-Extras.swift */,
+				146572281E61F44800A7D449 /* Assets.xcassets */,
+				1465722A1E61F44800A7D449 /* LaunchScreen.storyboard */,
+				1465722D1E61F44800A7D449 /* Info.plist */,
+				146572251E61F44800A7D449 /* mySpesa.xcdatamodeld */,
+			);
+			path = mySpesa;
+			sourceTree = "<group>";
+		};
+		146572351E61F44800A7D449 /* mySpesaTests */ = {
+			isa = PBXGroup;
+			children = (
+				146572361E61F44800A7D449 /* mySpesaTests.swift */,
+				146572381E61F44800A7D449 /* Info.plist */,
+			);
+			path = mySpesaTests;
+			sourceTree = "<group>";
+		};
+		146572401E61F44800A7D449 /* mySpesaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				146572411E61F44800A7D449 /* mySpesaUITests.swift */,
+				146572431E61F44800A7D449 /* Info.plist */,
+			);
+			path = mySpesaUITests;
+			sourceTree = "<group>";
+		};
+		146572571E61F62300A7D449 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				146572581E61F62300A7D449 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1465721A1E61F44800A7D449 /* mySpesa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 146572461E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesa" */;
+			buildPhases = (
+				146572171E61F44800A7D449 /* Sources */,
+				146572181E61F44800A7D449 /* Frameworks */,
+				146572191E61F44800A7D449 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mySpesa;
+			productName = mySpesa;
+			productReference = 1465721B1E61F44800A7D449 /* mySpesa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		146572311E61F44800A7D449 /* mySpesaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 146572491E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesaTests" */;
+			buildPhases = (
+				1465722E1E61F44800A7D449 /* Sources */,
+				1465722F1E61F44800A7D449 /* Frameworks */,
+				146572301E61F44800A7D449 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				146572341E61F44800A7D449 /* PBXTargetDependency */,
+			);
+			name = mySpesaTests;
+			productName = mySpesaTests;
+			productReference = 146572321E61F44800A7D449 /* mySpesaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1465723C1E61F44800A7D449 /* mySpesaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1465724C1E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesaUITests" */;
+			buildPhases = (
+				146572391E61F44800A7D449 /* Sources */,
+				1465723A1E61F44800A7D449 /* Frameworks */,
+				1465723B1E61F44800A7D449 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1465723F1E61F44800A7D449 /* PBXTargetDependency */,
+			);
+			name = mySpesaUITests;
+			productName = mySpesaUITests;
+			productReference = 1465723D1E61F44800A7D449 /* mySpesaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		146572131E61F44800A7D449 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Paolo Bonomi";
+				TargetAttributes = {
+					1465721A1E61F44800A7D449 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SK94N7V28Y;
+						ProvisioningStyle = Automatic;
+					};
+					146572311E61F44800A7D449 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SK94N7V28Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1465721A1E61F44800A7D449;
+					};
+					1465723C1E61F44800A7D449 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SK94N7V28Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1465721A1E61F44800A7D449;
+					};
+				};
+			};
+			buildConfigurationList = 146572161E61F44800A7D449 /* Build configuration list for PBXProject "mySpesa" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 146572121E61F44800A7D449;
+			productRefGroup = 1465721C1E61F44800A7D449 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1465721A1E61F44800A7D449 /* mySpesa */,
+				146572311E61F44800A7D449 /* mySpesaTests */,
+				1465723C1E61F44800A7D449 /* mySpesaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		146572191E61F44800A7D449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1465722C1E61F44800A7D449 /* LaunchScreen.storyboard in Resources */,
+				1465725C1E61F8C400A7D449 /* data.db in Resources */,
+				146572291E61F44800A7D449 /* Assets.xcassets in Resources */,
+				146572241E61F44800A7D449 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		146572301E61F44800A7D449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1465723B1E61F44800A7D449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		146572171E61F44800A7D449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146572211E61F44800A7D449 /* ViewController.swift in Sources */,
+				1465721F1E61F44800A7D449 /* AppDelegate.swift in Sources */,
+				146572521E61F5E700A7D449 /* SQLiteDB.swift in Sources */,
+				146572271E61F44800A7D449 /* mySpesa.xcdatamodeld in Sources */,
+				146572561E61F60200A7D449 /* String-Extras.swift in Sources */,
+				146572501E61F57400A7D449 /* Lista.swift in Sources */,
+				146572541E61F5F300A7D449 /* SQLTable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1465722E1E61F44800A7D449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146572371E61F44800A7D449 /* mySpesaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		146572391E61F44800A7D449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146572421E61F44800A7D449 /* mySpesaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		146572341E61F44800A7D449 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1465721A1E61F44800A7D449 /* mySpesa */;
+			targetProxy = 146572331E61F44800A7D449 /* PBXContainerItemProxy */;
+		};
+		1465723F1E61F44800A7D449 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1465721A1E61F44800A7D449 /* mySpesa */;
+			targetProxy = 1465723E1E61F44800A7D449 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		146572221E61F44800A7D449 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				146572231E61F44800A7D449 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1465722A1E61F44800A7D449 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1465722B1E61F44800A7D449 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		146572441E61F44800A7D449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		146572451E61F44800A7D449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		146572471E61F44800A7D449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mySpesa/mySpesa-swift.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "mySpesa/mySpesa-swift.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		146572481E61F44800A7D449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mySpesa/mySpesa-swift.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		1465724A1E61F44800A7D449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mySpesa.app/mySpesa";
+			};
+			name = Debug;
+		};
+		1465724B1E61F44800A7D449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mySpesa.app/mySpesa";
+			};
+			name = Release;
+		};
+		1465724D1E61F44800A7D449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = mySpesa;
+			};
+			name = Debug;
+		};
+		1465724E1E61F44800A7D449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = SK94N7V28Y;
+				INFOPLIST_FILE = mySpesaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paolo.mySpesaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = mySpesa;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		146572161E61F44800A7D449 /* Build configuration list for PBXProject "mySpesa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				146572441E61F44800A7D449 /* Debug */,
+				146572451E61F44800A7D449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		146572461E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				146572471E61F44800A7D449 /* Debug */,
+				146572481E61F44800A7D449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		146572491E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1465724A1E61F44800A7D449 /* Debug */,
+				1465724B1E61F44800A7D449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1465724C1E61F44800A7D449 /* Build configuration list for PBXNativeTarget "mySpesaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1465724D1E61F44800A7D449 /* Debug */,
+				1465724E1E61F44800A7D449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		146572251E61F44800A7D449 /* mySpesa.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				146572261E61F44800A7D449 /* mySpesa.xcdatamodel */,
+			);
+			currentVersion = 146572261E61F44800A7D449 /* mySpesa.xcdatamodel */;
+			path = mySpesa.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 146572131E61F44800A7D449 /* Project object */;
+}
