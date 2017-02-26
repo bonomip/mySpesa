@@ -13,7 +13,7 @@ class Lista: NSObject {
     
     static let data = Lista()
     
-    // All this function operate to the db excluding the column NUMERO
+// function that operate to the db excluding the column NUMERO
     
     // DB function // First component of picker view // do a select return the column paese from lista
     func getFirstArray() -> [String] {
@@ -85,8 +85,7 @@ class Lista: NSObject {
         // returns an array of double
         return arrayPesoG }
     
-    // All this function operate on the db excluding all the tuple that have NUMERO < 0
-    // used mostly for the TABLE
+// function that operate on the db including the column NUMERO
     
     // DB function // returns an array used to fill table's selection
     func getTableSection() -> [String] {

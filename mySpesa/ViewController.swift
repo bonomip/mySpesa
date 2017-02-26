@@ -24,19 +24,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // initialization of:
-        //pickerview
+            //pickerview
         self.picker.dataSource = self
         self.picker.delegate = self
-        //table
+            //table
         self.table.dataSource = self
         self.table.delegate = self
-        //q_text
+            //q_text
         self.q_Text.delegate = self
-        //headlabel
+            //headlabel
         headLabel.backgroundColor = UIColor(colorLiteralRed: 255.0/255.0 , green: 215.0/255.0, blue: 0.0/255.0, alpha: 1)
-        //labelTot
+            //labelTot
         labelTot.text = String(Lista.data.getP_TotGrammi())+" gr."
-        // pickerdataarray ( used to populate the pickerview )
+            // pickerdataarray ( used to populate the pickerview )
         pickerDataArray[0] = Lista.data.getFirstArray()
         pickerDataArray[1] = Lista.data.getSecondArray(paese: "America")
         pickerDataArray[2] = Lista.data.getThirdArray(paese: "America", nome: "Aquila")
