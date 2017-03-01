@@ -11,7 +11,7 @@ import Foundation
 @objc(Lista)
 class Lista: NSObject {
     
-    static let data = Lista()
+   static let data = Lista()
     
 // function that operate to the db excluding the column NUMERO
     
@@ -158,7 +158,7 @@ class Lista: NSObject {
     func P_toString() -> String{
         
         let dataProducts = SQLiteDB.sharedInstance.query(sql: "SELECT * FROM lista WHERE numero > 0")
-        var prodotti = "Paese | Nome | Valore facciale | Oncia | Grammi | Numero | Parziale Grammi \n\n"
+        var prodotti = "\n\n"
         var totGrammi = 0.0
         
         for array in dataProducts{
@@ -176,8 +176,14 @@ class Lista: NSObject {
                 if(element.key == "pesoG") {tempPeso = element.value as! Double}
                 if(element.key == "numero") {tempNumero = element.value as! Int}
             }
-            prodotti += tempPaese + " | " + tempNome + " | " + tempFacc + " | " + tempOz + " | " + String(tempPeso) +
-                " | " + String(tempNumero) + " | " + String(tempPeso*Double(tempNumero)) + "\n"
+            prodotti += "Paese: " + tempPaese + "\n" +
+                        "Nome: " + tempNome + "\n" +
+                        "Valore Facciale: " + tempFacc + "\n" +
+                        "Oncia: " + tempOz + "\n" +
+                        "Grammi: " + String(tempPeso) + " \n " +
+                        "Quantità: " + String(tempNumero) + "\n" +
+                        "Parizale Grammi: " + String(tempPeso*Double(tempNumero)) + "\n\n"
+            
             totGrammi += tempPeso*Double(tempNumero)
         }
         return prodotti + "\n TOTALE GRAMMI: " + String(totGrammi)

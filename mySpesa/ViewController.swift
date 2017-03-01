@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Foundation
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
@@ -41,13 +42,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         pickerDataArray[1] = Lista.data.getSecondArray(paese: "America")
         pickerDataArray[2] = Lista.data.getThirdArray(paese: "America", nome: "Aquila")
         pickerDataPesoG = Lista.data.getPesoG(paese: "America", nome: "Aquila")
+        CSVTools.data.writeCSV()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // PICKER VIEW FUNCTIONS
+// PICKER VIEW FUNCTIONS
     
     // this function is called when the pickerview is selected
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
@@ -86,7 +88,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return pickerDataArray[component][row]
     }
     
-    // TABLE FUNCTION
+// TABLE FUNCTION
     
     // number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -136,17 +138,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-    // STEPPER FUNCTION
+// STEPPER FUNCTION
     
     //setting the text of TextField with the UIStepper value (from -100 to 100)
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         q_Text.text = String(Int(sender.value))
     }
     
-    // BUTTON CONFRMA FUNCTION
+// BUTTON ADD FUNCTION
     
     // function called when button 'conferma' is pressed
-    @IBAction func confermaPressed(_ sender: UIButton) {
+    @IBAction func AddPressed(_ sender: UIButton) {
         // the value of the TextField must be of only decimal digits
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: q_Text.text!)
@@ -175,7 +177,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return true
     }
     
-    // BUTTON RESET FUNCTION
+// BUTTON RESET FUNCTION
     
     // DB function // set the number of all to 0
     @IBAction func resetPressed(_ sender: UIButton) {
@@ -185,7 +187,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         stepper.value = 0.0
     }
     
-    // SEND MAIL FUNCTION
+// SEND MAIL FUNCTION
     
     // this function hendle the event of the button "invia"
     @IBAction func sendEmail(_ sender: UIButton) {
@@ -203,10 +205,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             mail.setToRecipients(["info@euronummus.it"])
             mail.setSubject("Lista della spesa " + "[ \(day)/\(month)/\(year) \(hour):\(minute) ]")
             mail.setMessageBody(Lista.data.P_toString(), isHTML: false)
+            do{
+                try mail.addAttachmentData( NSData( contentsOfFile: CSVTools.data.getFile() ) as Data, mimeType: "text/csv", fileName: "mySpesa")
+            } catch _ as NSError { print("Errore nell'invio dell'allegato") }
             present(mail, animated: true)
         }
         else { // else is impossible to send an email
             // do stuff
+            print("Impossibile inviare Mail")
         }
     }
     

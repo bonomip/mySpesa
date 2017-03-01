@@ -82,7 +82,7 @@ class SQLiteDB:NSObject {
     }
     
     // MARK:- Class Methods
-    class func openRO(path:String) -> SQLiteDB {
+    class func openDB(path:String) -> SQLiteDB {
         let db = SQLiteDB(path:path)
         return db
     }

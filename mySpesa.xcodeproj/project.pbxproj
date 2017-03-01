@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1429478B1E67013B007E5056 /* CSVTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429478A1E67013B007E5056 /* CSVTools.swift */; };
+		1429478D1E67049B007E5056 /* mySpesa.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1429478C1E67049B007E5056 /* mySpesa.csv */; };
 		1465721F1E61F44800A7D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1465721E1E61F44800A7D449 /* AppDelegate.swift */; };
 		146572211E61F44800A7D449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146572201E61F44800A7D449 /* ViewController.swift */; };
 		146572241E61F44800A7D449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146572221E61F44800A7D449 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1429478A1E67013B007E5056 /* CSVTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVTools.swift; sourceTree = "<group>"; };
+		1429478C1E67049B007E5056 /* mySpesa.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mySpesa.csv; sourceTree = "<group>"; };
 		1465721B1E61F44800A7D449 /* mySpesa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mySpesa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1465721E1E61F44800A7D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		146572201E61F44800A7D449 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +65,7 @@
 		146572551E61F60200A7D449 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		146572581E61F62300A7D449 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		1465725A1E61F72300A7D449 /* mySpesa-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mySpesa-Swift.h"; sourceTree = "<group>"; };
-		1465725B1E61F8C400A7D449 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.db; path = mySpesa/data.db; sourceTree = "<group>"; };
+		1465725B1E61F8C400A7D449 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,6 @@
 		146572121E61F44800A7D449 = {
 			isa = PBXGroup;
 			children = (
-				1465725B1E61F8C400A7D449 /* data.db */,
 				1465721D1E61F44800A7D449 /* mySpesa */,
 				146572351E61F44800A7D449 /* mySpesaTests */,
 				146572401E61F44800A7D449 /* mySpesaUITests */,
@@ -115,10 +118,13 @@
 		1465721D1E61F44800A7D449 /* mySpesa */ = {
 			isa = PBXGroup;
 			children = (
+				1465725B1E61F8C400A7D449 /* data.db */,
+				1429478C1E67049B007E5056 /* mySpesa.csv */,
 				1465721E1E61F44800A7D449 /* AppDelegate.swift */,
 				1465725A1E61F72300A7D449 /* mySpesa-Swift.h */,
 				146572201E61F44800A7D449 /* ViewController.swift */,
 				146572221E61F44800A7D449 /* Main.storyboard */,
+				1429478A1E67013B007E5056 /* CSVTools.swift */,
 				1465724F1E61F57400A7D449 /* Lista.swift */,
 				146572511E61F5E700A7D449 /* SQLiteDB.swift */,
 				146572531E61F5F300A7D449 /* SQLTable.swift */,
@@ -270,6 +276,7 @@
 				1465722C1E61F44800A7D449 /* LaunchScreen.storyboard in Resources */,
 				1465725C1E61F8C400A7D449 /* data.db in Resources */,
 				146572291E61F44800A7D449 /* Assets.xcassets in Resources */,
+				1429478D1E67049B007E5056 /* mySpesa.csv in Resources */,
 				146572241E61F44800A7D449 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +308,7 @@
 				146572271E61F44800A7D449 /* mySpesa.xcdatamodeld in Sources */,
 				146572561E61F60200A7D449 /* String-Extras.swift in Sources */,
 				146572501E61F57400A7D449 /* Lista.swift in Sources */,
+				1429478B1E67013B007E5056 /* CSVTools.swift in Sources */,
 				146572541E61F5F300A7D449 /* SQLTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
