@@ -11,17 +11,18 @@ import Foundation
 @objc (CSVTools)
 
 class CSVTools: NSObject {
-    
-    let filename = "mySpesa"
-    let typeOfFile = "csv"
+
     static let data = CSVTools()
     
-    // returns the URL of the CSV file
+    // returns URL of CSV file
     func getFile() -> String {
-        return Bundle.main.path(forResource: self.filename, ofType: self.typeOfFile)!
+        let fm = FileManager.default
+        let docsurl = try! fm.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let path = docsurl.appendingPathComponent("mySpesa.csv").path
+        return path
     }
     
-    // this method write inside the CSV file the data of the product with "numero" > 0
+    // this function insert all the products with "numero" > 0 in mySPesa.csv
     func writeCSV(){
         //use ',' to separe data, '\n' to end tupla
         do {
@@ -47,13 +48,13 @@ class CSVTools: NSObject {
                 fileData += ( t_Ps + "," + t_Nme + "," + t_VlF + "," + t_Oz + "," + String( t_Gr ) + "," + String( t_Nmr ) + "," + String( t_Gr * Double( t_Nmr ) ) + "\n" )
                 t_TotG += t_Gr * Double( t_Nmr )
             }
-            //add the value of total grams
-            fileData += "\n\n\t\t\t" + "Totale Grammi: " + String(t_TotG)
-            // Write on CSV
+            //add value of total grams
+            fileData += " , , , , , , \n\n\t\t\t" + "Totale Grammi: " + String(t_TotG)
+            // try write on CSV file
             try fileData.write(toFile: getFile(), atomically: true, encoding: String.Encoding.utf8)
-        } catch _ as NSError { print("Error while try writing on CSV file") }
-
-        //DEBUG PRINT CSV FILE
-        do { try print( String(contentsOfFile: getFile(), encoding: String.Encoding.utf8 )) } catch _ as NSError { print("Error while print CSV file") }
+        } catch _ as NSError {
+            //if there was an error
+            print("\nError while try writing on CSV file")
+        }
     }
 }

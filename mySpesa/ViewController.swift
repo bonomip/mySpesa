@@ -12,14 +12,23 @@ import Foundation
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
+    //label that display mySpesa title in the View
     @IBOutlet weak var headLabel: UILabel!
+    //pickerview used to select product
     @IBOutlet weak var picker: UIPickerView!
+    //table used to display product with DB 'numero' > 0
     @IBOutlet weak var table: UITableView!
+    //text which the user can choose the quantity for each product selected by the pickerview
     @IBOutlet weak var q_Text: UITextField!
+    //label display the sum of DB 'pesoG' * 'numero' for each product with 'numero' > 0
     @IBOutlet weak var labelTot: UILabel!
+    // stepper used to fill q_Text
     @IBOutlet weak var stepper: UIStepper!
     
+    //array used to reference the pickerview
     var pickerDataArray = [[""], [""], [""]]
+    //array used to update the DB to avoid possibily mistake with casting
+    // ( from Double to String [need by pickerview third component] and from String to Double [need by DB query SELECT to update the column 'numero'] )
     var pickerDataPesoG = [0.0, 0.0, 0.0]
     
     override func viewDidLoad() {
@@ -42,7 +51,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         pickerDataArray[1] = Lista.data.getSecondArray(paese: "America")
         pickerDataArray[2] = Lista.data.getThirdArray(paese: "America", nome: "Aquila")
         pickerDataPesoG = Lista.data.getPesoG(paese: "America", nome: "Aquila")
-        CSVTools.data.writeCSV()
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,28 +58,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
 // PICKER VIEW FUNCTIONS
-    
-    // this function is called when the pickerview is selected
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        if ( component == 0) { // if was changed the first component the second and the third will change too
-            // changing the second...
-            pickerDataArray[1] = Lista.data.getSecondArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)])
-            pickerView.reloadComponent(1)
-            // changing the third...
-            pickerDataArray[2] = Lista.data.getThirdArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
-            // also saving the pesoG data to another array... this is to easly update the db later...
-            pickerDataPesoG = Lista.data.getPesoG(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
-            pickerView.reloadComponent(2)
-            
-        }
-        if ( component == 1 ) { // if was changed only the second component only the third wil change too
-            // changing the third...
-            pickerDataArray[2] = Lista.data.getThirdArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
-            // also saving the pesoG data to another array like before...
-            pickerDataPesoG = Lista.data.getPesoG(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
-            pickerView.reloadComponent(2)
-        }
-    }
     
     // number of pickerview's components
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -86,6 +72,28 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     // the string displayed for each component's row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataArray[component][row]
+    }
+    
+    // this function is called when the pickerview is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        if ( component == 0) { // if was changed first component so second and third will change too
+            // changing second...
+            pickerDataArray[1] = Lista.data.getSecondArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)])
+            pickerView.reloadComponent(1)
+            // changing third...
+            pickerDataArray[2] = Lista.data.getThirdArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
+            // also saving DB 'pesoG' data to another array... this is to easly update column 'numero' in DB later...
+            pickerDataPesoG = Lista.data.getPesoG(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
+            pickerView.reloadComponent(2)
+            
+        }
+        if ( component == 1 ) { // if was changed second component only third wil change too
+            // changing third...
+            pickerDataArray[2] = Lista.data.getThirdArray(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
+            // also saving DB 'pesoG' data to another array... this is to easly update column 'numero' in DB later...
+            pickerDataPesoG = Lista.data.getPesoG(paese: pickerDataArray[0][pickerView.selectedRow(inComponent: 0)], nome: pickerDataArray[1][pickerView.selectedRow(inComponent: 1)])
+            pickerView.reloadComponent(2)
+        }
     }
     
 // TABLE FUNCTION
@@ -105,73 +113,76 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return Lista.data.getTableSection()[section]
     }
     
-    // populate the table view and choose the syle for the cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "ProductCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID) ?? UITableViewCell( style: .subtitle, reuseIdentifier: cellID )
-        // style of each cell
-        cell.detailTextLabel?.text = Lista.data.getTableP_Info()[indexPath.section][indexPath.row]
-        cell.textLabel?.text = Lista.data.getTableP_Name()[indexPath.section][indexPath.row]
-        return cell
-    }
-    
-    // this function enable editing rows in the table
+    // enable editing rows in the table
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    // this function is called when the user want to delete a row in the table
+    // this function is called when a row in the table was swipe to the left
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) { // if the user press delete
-            if( Lista.data.updateP_Number( paese: Lista.data.getTableSection()[indexPath.section], nome: Lista.data.getTableP_Name()[indexPath.section][indexPath.row], pesoG: Lista.data.getTableP_PesoG()[indexPath.section][indexPath.row], numero: 0) == 0 ){ // there was an error
+            //update DB changing the DB 'numero' to 0
+            if( Lista.data.updateP_Number( paese: Lista.data.getTableSection()[indexPath.section], nome: Lista.data.getTableP_Name()[indexPath.section][indexPath.row], pesoG: Lista.data.getTableP_PesoG()[indexPath.section][indexPath.row], numero: 0) == 0 ){
+                // there was an error updating DB
+                print("Error updating DB - While try to delete a row in the table the update method fails")
             }
-            else { //update data table correctly
+            else {
+                //the DB was update correclty so also update data table
                 updateTable()
             }
         }
+    }
+    
+    // this function choose how populate the table view and populate it with the choosen syle
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //this is need to release memory
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell") ?? UITableViewCell( style: .subtitle, reuseIdentifier: "ProductCell")
+        // style of each cell
+        // textLabel will show DB 'name' attribute
+        cell.textLabel?.text = Lista.data.getTableP_Name()[indexPath.section][indexPath.row]
+        // datailTextLabel will show DB 'valoreF', 'oz', 'pesoG', 'numero' and 'pesoG'*'numero' as 'Parziale Grammi'
+        cell.detailTextLabel?.text = Lista.data.getTableP_Info()[indexPath.section][indexPath.row]
+        return cell
     }
     
     // this function update the data of the table
     func updateTable() {
         table.reloadData()
+        //also update the labelTot that shows the sum of all DB products 'pesoG'*'numero' with 'numero' > 0
         labelTot.text = String(Lista.data.getP_TotGrammi())
     }
     
-    
 // STEPPER FUNCTION
     
-    //setting the text of TextField with the UIStepper value (from -100 to 100)
+    // call when user press stepper
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        //change text of TextField with UIStepper value (from 0 to 100)
         q_Text.text = String(Int(sender.value))
     }
     
 // BUTTON ADD FUNCTION
     
-    // function called when button 'conferma' is pressed
+    // function called when button 'add' is pressed
     @IBAction func AddPressed(_ sender: UIButton) {
-        // the value of the TextField must be of only decimal digits
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: q_Text.text!)
-        // if the text is composed by decimal digits and is not equal to 0 and isn't empty...
-        if(allowedCharacters.isSuperset(of: characterSet) && Int(q_Text.text!) != 0 && !(q_Text.text?.isEmpty)!) {
-            // update column number in the db data.db
-            if(Lista.data.updateP_Number(paese: pickerDataArray[0][picker.selectedRow(inComponent: 0)], nome: pickerDataArray[1][picker.selectedRow(inComponent: 1)], pesoG: pickerDataPesoG[picker.selectedRow(inComponent: 2)], numero: Int(q_Text.text!)!) == 0) { // if there was an error upgrading the number value...
-                
-                // do stuff...
-                
+        if(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: q_Text.text!)) && Int(q_Text.text!) != 0 && !(q_Text.text?.isEmpty)!) {
+            // if q_Text.text is in decimal digits and isn't 0 and isn't empty...
+            // update column DB 'number'
+            if(Lista.data.updateP_Number(paese: pickerDataArray[0][picker.selectedRow(inComponent: 0)], nome: pickerDataArray[1][picker.selectedRow(inComponent: 1)], pesoG: pickerDataPesoG[picker.selectedRow(inComponent: 2)], numero: Int(q_Text.text!)!) == 0) {
+                // there was an error updating DB
+                print("Error updating DB - Impossible to update column 'numero'")
             }
-            else { // update db correctly
-                // update table
+            else {
+                //the DB was update correclty so also update data table
                 updateTable()
             }
         }
-        else { // else text isn't in a correct format
-            // display error
-            q_Text.text = "errore"
+        else {
+            // if q_Text.text isn't in decimal digits or is 0 or is empty... display error in q_Text
+            q_Text.text = "ERR"
         }
     }
     
-    //function to hide keybord when pressing " conferma "
+    // this function hide keybord when return key is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -179,44 +190,60 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
 // BUTTON RESET FUNCTION
     
-    // DB function // set the number of all to 0
+    // DB function // this function is called when button 'reset' is pressed
     @IBAction func resetPressed(_ sender: UIButton) {
+        //set DB 'numero' of all products to 0
         _ = SQLiteDB.sharedInstance.execute(sql: "UPDATE lista SET numero=0")
+        //update table
         updateTable()
+        //set q_Text to 0
         q_Text.text = "0"
+        //set stepper.value to 0.0
         stepper.value = 0.0
     }
     
 // SEND MAIL FUNCTION
     
-    // this function hendle the event of the button "invia"
+    // this function is called when button 'invia' is pressed
     @IBAction func sendEmail(_ sender: UIButton) {
         
-        // set up date
+        //write on CSV file all the products with DB 'numero' > 0
+        CSVTools.data.writeCSV()
+        
+        // set up date DD/MM/YYYY HH:MM
         let day = Calendar.current.component(.day, from: NSDate() as Date)
         let month = Calendar.current.component(.month, from: NSDate() as Date)
         let year = Calendar.current.component(.year, from: NSDate() as Date)
         let hour = Calendar.current.component(.hour, from: NSDate() as Date)
         let minute = Calendar.current.component(.minute, from: NSDate() as Date)
         
-        if( MFMailComposeViewController.canSendMail() ) { // if is possible to send email
+        if( MFMailComposeViewController.canSendMail() ) {
+            // if is possible to send email
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
+            // set recipient
             mail.setToRecipients(["info@euronummus.it"])
+            //set subject
             mail.setSubject("Lista della spesa " + "[ \(day)/\(month)/\(year) \(hour):\(minute) ]")
-            mail.setMessageBody(Lista.data.P_toString(), isHTML: false)
+            //set message body
+            mail.setMessageBody("\n\n\t\t\t Aprire il file allegato tramite Excel \n\n\n", isHTML: false)
             do{
+                // try to attach CSV file
                 try mail.addAttachmentData( NSData( contentsOfFile: CSVTools.data.getFile() ) as Data, mimeType: "text/csv", fileName: "mySpesa")
-            } catch _ as NSError { print("Errore nell'invio dell'allegato") }
+            } catch _ as NSError {
+                //if there was an error attaching the CSV file
+                print("\nErrore nell'invio dell'allegato")
+            }
+            //send mail
             present(mail, animated: true)
         }
         else { // else is impossible to send an email
             // do stuff
-            print("Impossibile inviare Mail")
+            print("\nImpossibile inviare Mail")
         }
     }
     
-    // function to dismiss the mail window
+    // this function dismiss the mail window once it is sent
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
