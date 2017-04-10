@@ -43,7 +43,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             //q_text
         self.q_Text.delegate = self
             //headlabel
-        headLabel.backgroundColor = UIColor(colorLiteralRed: 255.0/255.0 , green: 215.0/255.0, blue: 0.0/255.0, alpha: 1)
+        headLabel.backgroundColor = UIColor(colorLiteralRed: 255.0/255.0 , green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
             //labelTot
         labelTot.text = String(Lista.data.getP_TotGrammi())+" gr."
             // pickerdataarray ( used to populate the pickerview )
