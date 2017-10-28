@@ -1,3 +1,9 @@
 # mySpesa
 
-A small app to improve supply management using SQLite and a simply GUI interface composed of PikerView, TableView, Buttons and Texfield. 
+A small utility application made in XCode with SQLite.
+
+# Info
+
+Developed on behalf of a company in order to simplify and speed up stock refueling
+
+Started in 2016.
